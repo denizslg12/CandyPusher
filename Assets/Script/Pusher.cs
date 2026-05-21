@@ -12,11 +12,11 @@ public class Pusher : MonoBehaviour
         startPosition = this.transform.position;
         Debug.Log("ÉQÅ[ÉÄÇ™äJénÇµÇΩÇÊ");
     }
-
+    public Rigidbody rb;
     // Update is called once per frame
     void Update()
     {
         float z = Mathf.Sin(Time.time * speed) * movePower;
-        this.transform.localPosition = startPosition + new Vector3(0, 0, z);
+        rb.linearVelocity =  new Vector3(0, 0, z);
     }
 }
