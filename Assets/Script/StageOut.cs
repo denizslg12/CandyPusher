@@ -6,8 +6,11 @@ public class StageOut : MonoBehaviour
     private int Score;
     public Text scoreText;
     public TMPro.TextMeshProUGUI scoreTextTMP;
+    public AudioManager audioManager;
     private void OnTriggerEnter(Collider other)
-    {  
+    {
+        audioManager.PlaySE();
+
         Score +=1  ;
         Debug.Log($"score is {Score}");
 
