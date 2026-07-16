@@ -11,7 +11,17 @@ public class StageOut : MonoBehaviour
     {
         audioManager.PlaySE();
 
-        Score +=1  ;
+        if (Score >= 10)
+        {
+            if (audioManager.bgmAudioSource.clip != audioManager.bgmAudioClips[1])
+            {
+                audioManager.bgmAudioSource.clip = audioManager.bgmAudioClips[1];
+                audioManager.bgmAudioSource.Play();
+            }
+        }
+
+
+            Score +=1  ;
         Debug.Log($"score is {Score}");
 
         scoreTextTMP.text = $"{Score}";
@@ -19,7 +29,8 @@ public class StageOut : MonoBehaviour
         scoreText.text = ($"score is {Score}");
         //Debug.Log($"{other.name}Ç™Ç∑ÇËî≤ÇØÇ‹ÇµÇΩÅB");
         Destroy(other.gameObject);
-        
+
+                        
     }
 
 }
