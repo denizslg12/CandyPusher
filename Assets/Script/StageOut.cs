@@ -6,24 +6,23 @@ public class StageOut : MonoBehaviour
     private int Score;
     public Text scoreText;
     public TMPro.TextMeshProUGUI scoreTextTMP;
-    public AudioManager audioManager;
+    
     private void OnTriggerEnter(Collider other)
     {
-        audioManager.PlaySE();
 
-        if (Score >= 10)
+        if (Score >= 50)
         {
-            if (audioManager.bgmAudioSource.clip != audioManager.bgmAudioClips[1])
+            if (AudioManager.instance.bgmAudioSource.clip != AudioManager.instance.bgmAudioClips[1])
             {
-                audioManager.bgmAudioSource.clip = audioManager.bgmAudioClips[1];
-                audioManager.bgmAudioSource.Play();
+                AudioManager.instance.bgmAudioSource.clip = AudioManager.instance.bgmAudioClips[1];
+                AudioManager.instance.bgmAudioSource.Play();
             }
         }
 
+        AudioManager.instance.PlaySE();
 
-            Score +=1  ;
-        Debug.Log($"score is {Score}");
 
+        Score += 1  ;
         scoreTextTMP.text = $"{Score}";
 
         scoreText.text = ($"score is {Score}");
@@ -32,5 +31,6 @@ public class StageOut : MonoBehaviour
 
                         
     }
+   
 
 }

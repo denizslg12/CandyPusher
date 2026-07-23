@@ -22,8 +22,7 @@ public class CreateCandy : MonoBehaviour
     {
         if(Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            Debug.Log("スペースが押された");
-            GameObject InstantiatedCandy= Instantiate(candyPrefab);
+            GameObject InstantiatedCandy = Instantiate(candyPrefab);
             InstantiatedCandy.transform.position = this.transform.position;
         }
     }

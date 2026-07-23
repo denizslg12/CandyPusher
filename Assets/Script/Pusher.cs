@@ -10,7 +10,7 @@ public class Pusher : MonoBehaviour
     void Start()
     {
         startPosition = this.transform.position;
-        Debug.Log("ƒQ[ƒ€‚ªŠJn‚µ‚½‚æ");
+        
     }
     public Rigidbody rb;
     // Update is called once per frame

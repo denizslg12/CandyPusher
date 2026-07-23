@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    static public AudioManager instance;
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public AudioClip[] audioClips;
     public AudioSource seAudioSource;
     public AudioClip[] bgmAudioClips; 
