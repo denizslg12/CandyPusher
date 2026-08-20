@@ -6,7 +6,10 @@ public class StageOut : MonoBehaviour
     private int Score;
     public Text scoreText;
     public TMPro.TextMeshProUGUI scoreTextTMP;
-    
+    private int Combo = 0;
+
+    private CandyColor? previousColor = null;
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -21,13 +24,43 @@ public class StageOut : MonoBehaviour
 
         AudioManager.instance.PlaySE();
 
+        Candy candy = other.GetComponent<Candy>();
 
-        Score += 1  ;
-        scoreTextTMP.text = $"{Score}";
+        if (candy != null)
+        {
+            CandyColor currentColor = candy.Color;
 
-        scoreText.text = ($"score is {Score}");
-        //Debug.Log($"{other.name}Ç™Ç∑ÇËî≤ÇØÇ‹ÇµÇΩÅB");
-        Destroy(other.gameObject);
+
+            if (previousColor == null)
+            {
+                previousColor = currentColor;
+            }
+            else
+            {
+                if (currentColor == previousColor.Value)
+                {
+                    Debug.Log("Same Color! Combo Continue! Combo"+Combo);
+                    Combo++;
+                    Score += 1+Combo;
+                }
+                else
+                {
+                    Debug.Log("Different Color! Combo Reset!");
+                    Combo = 0;
+                    Score += 1;
+
+                }
+
+                previousColor = currentColor;
+            }
+
+            
+            scoreTextTMP.text = $"{Score}";
+
+            scoreText.text = ($"score is {Score}");
+            //Debug.Log($"{other.name}Ç™Ç∑ÇËî≤ÇØÇ‹ÇµÇΩÅB");
+            Destroy(other.gameObject);
+        }
 
                         
     }

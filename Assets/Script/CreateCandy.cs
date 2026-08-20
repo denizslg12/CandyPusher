@@ -4,25 +4,32 @@ using UnityEngine.InputSystem;
 
 public class CreateCandy : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject candyPrefab;
+    [SerializeField] private GameObject[] normalCandyPrefabs;
+    [SerializeField] private GameObject[] specialCandyPrefabs;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         InvokeRepeating("OutputTime", 1f, 1f);
     }
-    void OutputTime() {
-        GameObject InstantiatedCandy = Instantiate(candyPrefab);
-    InstantiatedCandy.transform.position = this.transform.position;
-        }
+    void OutputTime() 
+    {
+        int randomIndex = Random.Range(0, normalCandyPrefabs.Length);
+
+        GameObject InstantiatedCandy =
+            Instantiate(normalCandyPrefabs[randomIndex]);
+
+        InstantiatedCandy.transform.position = this.transform.position;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if(Keyboard.current.spaceKey.wasPressedThisFrame)
         {
-            GameObject InstantiatedCandy = Instantiate(candyPrefab);
+            int randomIndex = Random.Range(0, normalCandyPrefabs.Length);
+            GameObject InstantiatedCandy =
+             Instantiate(normalCandyPrefabs[randomIndex]);
             InstantiatedCandy.transform.position = this.transform.position;
         }
     }

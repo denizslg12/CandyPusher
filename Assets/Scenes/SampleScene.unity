@@ -1225,7 +1225,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageOut
   scoreText: {fileID: 944399562}
   scoreTextTMP: {fileID: 1911243180}
-  audioManager: {fileID: 850605209}
 --- !u!1001 &690077750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3040,7 +3039,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2205e674167c2a84bad28a146e85e3d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreateCandy
-  candyPrefab: {fileID: 9185998166256670118, guid: 2703ce62f1b5dfc42be022ed69c01266, type: 3}
+  normalCandyPrefabs:
+  - {fileID: 9185998166256670118, guid: 2703ce62f1b5dfc42be022ed69c01266, type: 3}
+  - {fileID: 2609754312671248465, guid: b67b5a7d6785caa459df43c6abde8817, type: 3}
+  specialCandyPrefabs:
+  - {fileID: 677651629813364458, guid: 98a158211eaacb34292102db1347843a, type: 3}
+  - {fileID: 6404777658410286265, guid: 1c3222d2692fdba41b20431f854594d8, type: 3}
 --- !u!4 &2019059072
 Transform:
   m_ObjectHideFlags: 0
