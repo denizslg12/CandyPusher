@@ -6,3 +6,8 @@ public enum CandyColor
     green,
 
 }
+public enum CandyType
+{
+    multiplier,
+    normal,
+}

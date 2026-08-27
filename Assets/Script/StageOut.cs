@@ -29,7 +29,7 @@ public class StageOut : MonoBehaviour
         if (candy != null)
         {
             CandyColor currentColor = candy.Color;
-
+            CandyType isSpecial = candy.Type;
 
             if (previousColor == null)
             {
@@ -50,12 +50,21 @@ public class StageOut : MonoBehaviour
                     Score += 1;
 
                 }
+                if (isSpecial != CandyType.multiplier)
+                {
+                    Candy[] allCandies = FindObjectsByType<Candy>(FindObjectsSortMode.None);
+
+                    foreach (Candy candy in allCandies)
+                        if (candy.candyColor != )
+                            Destroy(candy);
+                }
 
                 previousColor = currentColor;
             }
+            
 
             
-            scoreTextTMP.text = $"{Score}";
+            
 
             scoreText.text = ($"score is {Score}");
             //Debug.Log($"{other.name}Ç™Ç∑ÇËî≤ÇØÇ‹ÇµÇΩÅB");

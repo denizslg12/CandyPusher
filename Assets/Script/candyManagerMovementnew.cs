@@ -17,5 +17,7 @@ public class candyManagerMovementTranslate : MonoBehaviour
         {
             moveSpeed = -1 * moveSpeed;
         }
+
     }
+    
 }
