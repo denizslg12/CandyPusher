@@ -8,6 +8,7 @@ public class CreateCandy : MonoBehaviour
     [SerializeField] private GameObject[] specialCandyPrefabs;
     public float cooldown = 5f;
     private float canpush = 0.0f;
+    public UIController uiController;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -44,8 +45,16 @@ public class CreateCandy : MonoBehaviour
                 GameObject InstantiatedCandy =
                  Instantiate(specialCandyPrefabs[randomIndex]);
                 InstantiatedCandy.transform.position = this.transform.position;
-                
             }
         }
+        if (Time.time >= canpush)
+        {
+            uiController.ShowImage();
+        }
+        else 
+        {
+            uiController.HideImage();
+        }
+        
     }
 }

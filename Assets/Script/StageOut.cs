@@ -34,6 +34,7 @@ public class StageOut : MonoBehaviour
             if (previousColor == null)
             {
                 previousColor = currentColor;
+                Score += 1;
             }
             else
             {
@@ -50,13 +51,13 @@ public class StageOut : MonoBehaviour
                     Score += 1;
 
                 }
-                if (isSpecial != CandyType.multiplier)
+                if (isSpecial == CandyType.multiplier)
                 {
                     Candy[] allCandies = FindObjectsByType<Candy>(FindObjectsSortMode.None);
 
-                    foreach (Candy candy in allCandies)
-                        if (candy.candyColor != )
-                            Destroy(candy);
+                    foreach (Candy targetcandy in allCandies)
+                        if (targetcandy.Color != currentColor )
+                            Destroy(targetcandy.gameObject);
                 }
 
                 previousColor = currentColor;
