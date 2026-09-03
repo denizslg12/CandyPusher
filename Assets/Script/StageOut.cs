@@ -5,6 +5,7 @@ public class StageOut : MonoBehaviour
 {
     private int Score;
     public Text scoreText;
+    public Text comboText;
     public TMPro.TextMeshProUGUI scoreTextTMP;
     private int Combo = 0;
 
@@ -62,10 +63,11 @@ public class StageOut : MonoBehaviour
 
                 previousColor = currentColor;
             }
-            
 
-            
-            
+
+
+
+            comboText.text = ($"combo is {Combo}");
 
             scoreText.text = ($"score is {Score}");
             //Debug.Log($"{other.name}Ç™Ç∑ÇËî≤ÇØÇ‹ÇµÇΩÅB");
