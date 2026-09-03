@@ -41,9 +41,15 @@ public class CreateCandy : MonoBehaviour
             if (Keyboard.current.bKey.wasPressedThisFrame && Time.time>=canpush)
             {
                 canpush = Time.time + cooldown;
-                int randomIndex = Random.Range(0, specialCandyPrefabs.Length);
                 GameObject InstantiatedCandy =
-                 Instantiate(specialCandyPrefabs[randomIndex]);
+                 Instantiate(specialCandyPrefabs[1]);
+                InstantiatedCandy.transform.position = this.transform.position;
+            }
+            if (Keyboard.current.pKey.wasPressedThisFrame && Time.time >= canpush)
+            {
+                canpush = Time.time + cooldown;
+                GameObject InstantiatedCandy =
+                 Instantiate(specialCandyPrefabs[0]);
                 InstantiatedCandy.transform.position = this.transform.position;
             }
         }
